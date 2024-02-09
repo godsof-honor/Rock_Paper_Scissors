@@ -22,65 +22,79 @@ function getRandomInt(max){
 
 
 let computerSelection;
-//let playerSelection;
+let playerSelection;
 
 
 
-// function player(){
-//     playerChoice = prompt("Please enter your choice");
-//     playerAnswer = playerChoice.toUpperCase();
-//     return playerAnswer;
-    
-// }
-
-
-
-//playerSelection = player();
-computerSelection = getComputerChoice();
-
-//console.log("Player chooses:", playerSelection);
-//console.log("Computer chooses", computerSelection);
-
-
-
-function playRound(playerSelection, computerSelection){
-    if (playerSelection == "ROCK" && computerSelection == "SCISSORS"){
-        alert("You win! ROCK beats SCISSORS!")
-    }
-    else if (playerSelection == "ROCK" && computerSelection == "PAPER"){
-        alert("You lose! PAPER beats ROCK!")
-    }
-    else if (playerSelection == "ROCK" && computerSelection == "ROCK"){
-        alert("You both picked ROCK! This is a tie!")
-    }
-    else if (playerSelection == "PAPER" && computerSelection == "ROCK"){
-        alert("You win! PAPER beats ROCK!")
-    }
-    else if (playerSelection == "PAPER" && computerSelection == "SCISSORS"){
-        alert("You lose! SCISSORS beats ROCK")
-    }
-    else if (playerSelection == "PAPER" && computerSelection == "PAPER"){
-        alert("You both picked PAPER! This is a tie!")
-    }
-    else if (playerSelection == "SCISSORS" && computerSelection == "ROCK"){
-        alert("You lose! ROCK beats SCISSORS")
-    }
-    else if (playerSelection == "SCISSORS" && computerSelection == "PAPER"){
-        alert("You win! SCISSORS beats PAPER")
-    }
-    else (alert("You both picked SCISSORS! This is a tie!"))
-    return;
+function player(){
+    playerChoice = prompt("Please enter your choice");
+    playerAnswer = playerChoice.toUpperCase();
+    return playerAnswer;
 }
 
-const playerSelection = "ROCK"
-
-console.log("Player chooses:", playerSelection);
-console.log("Computer chooses:", computerSelection)
-
-console.log(playRound(playerSelection, computerSelection));
-//playround(playerSelection, computerSelection);
+function playRound(playerSelection, computerSelection){
+    if (playerSelection == "ROCK" && computerSelection == "SCISSORS") {
+        alert("You win! ROCK beats SCISSORS!");
+        return 1;
+    }
+    else if (playerSelection == "ROCK" && computerSelection == "PAPER") {
+        alert("You lose! PAPER beats ROCK!");
+        return 0;
+    }
+    else if (playerSelection == "ROCK" && computerSelection == "ROCK") {
+        alert("You both picked ROCK! This is a tie!");
+        return -1;
+    }
+    else if (playerSelection == "PAPER" && computerSelection == "ROCK") {
+        alert("You win! PAPER beats ROCK!");
+        return 1;
+    }
+    else if (playerSelection == "PAPER" && computerSelection == "SCISSORS") {
+        alert("You lose! SCISSORS beats ROCK");
+        return 0;
+    }
+    else if (playerSelection == "PAPER" && computerSelection == "PAPER") {
+        alert("You both picked PAPER! This is a tie!");
+        return -1;
+    }
+    else if (playerSelection == "SCISSORS" && computerSelection == "ROCK") {
+        alert("You lose! ROCK beats SCISSORS");
+        return 0;
+    }
+    else if (playerSelection == "SCISSORS" && computerSelection == "PAPER") {
+        alert("You win! SCISSORS beats PAPER");
+        return 1;
+    }
+    else {
+        alert("You tie! You both picked SCISSROS");
+        return -1;
+    }
+}
 
 
 function playGame(){
-    
+    let playerWins = 0;
+    let computerWins = 0;
+    let r = 5;
+
+    for (let i = 0; i < r; i++) {
+        playerSelection = player();
+        computerSelection = getComputerChoice();
+        let result = playRound(playerSelection, computerSelection);
+        if (result == 1) {
+            playerWins = playerWins + 1;
+        }
+        else if (result == 0) {
+            computerWins = computerWins + 1;
+        }
+        else {
+            r++;
+        }
+        if (playerWins == 3 || computerWins == 3) {
+            break;
+        }
+    }
+    console.log(playerWins + "-" + computerWins);
 }
+
+playGame();
