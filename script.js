@@ -22,28 +22,28 @@ function getRandomInt(max){
 
 
 let computerSelection;
-let playerSelection;
+//let playerSelection;
 
 
 
-function player(){
-    playerChoice = prompt("Please enter your choice");
-    playerAnswer = playerChoice.toUpperCase();
-    return playerAnswer;
+// function player(){
+//     playerChoice = prompt("Please enter your choice");
+//     playerAnswer = playerChoice.toUpperCase();
+//     return playerAnswer;
     
-}
+// }
 
 
 
-playerSelection = player();
+//playerSelection = player();
 computerSelection = getComputerChoice();
 
-console.log("Player chooses:", playerSelection);
-console.log("Computer chooses", computerSelection);
+//console.log("Player chooses:", playerSelection);
+//console.log("Computer chooses", computerSelection);
 
 
 
-function playround(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection){
     if (playerSelection == "ROCK" && computerSelection == "SCISSORS"){
         alert("You win! ROCK beats SCISSORS!")
     }
@@ -68,9 +68,19 @@ function playround(playerSelection, computerSelection){
     else if (playerSelection == "SCISSORS" && computerSelection == "PAPER"){
         alert("You win! SCISSORS beats PAPER")
     }
-    else (playerSelection == "SCISSORS" && computerSelection == "SCISSORS"){
-        alert("You both picked SCISSORS! This is a tie!")
-    }
+    else (alert("You both picked SCISSORS! This is a tie!"))
+    return;
 }
 
-playround(playerSelection, computerSelection);
+const playerSelection = "ROCK"
+
+console.log("Player chooses:", playerSelection);
+console.log("Computer chooses:", computerSelection)
+
+console.log(playRound(playerSelection, computerSelection));
+//playround(playerSelection, computerSelection);
+
+
+function playGame(){
+    
+}
