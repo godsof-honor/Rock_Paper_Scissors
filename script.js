@@ -25,7 +25,6 @@ let computerSelection;
 let playerSelection;
 
 
-
 function player(){
     playerChoice = prompt("Please enter your choice");
     playerAnswer = playerChoice.toUpperCase();
@@ -66,7 +65,7 @@ function playRound(playerSelection, computerSelection){
         return 1;
     }
     else {
-        alert("You tie! You both picked SCISSROS");
+        alert("You tie! You both picked SCISSORS");
         return -1;
     }
 }
